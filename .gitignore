@@ -1,0 +1,10 @@
+Node.js dependencies
+node_modules/ npm-debug.log yarn-error.log
+Environment variables
+backend/.env
+Uploaded files
+backend/uploads/*
+Build artifacts
+dist/ build/
+Editor and OS files
+.DS_Store *.log .idea/ .vscode/ *.swp *.swo

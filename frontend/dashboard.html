@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - Theotokos Institute Zambia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-4 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Theotokos Institute Zambia</h1>
+      <nav>
+        <a href="index.html" class="text-blue-300 hover:text-blue-100 mx-2">Home</a>
+        <a href="#" id="logout" class="text-blue-300 hover:text-blue-100 mx-2">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Student Dashboard</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold mb-4">Welcome, <span id="student-name">Student</span></h3>
+        <h4 class="text-xl font-bold mb-2">Enrolled Courses</h4>
+        <div id="courses" class="mb-8"></div>
+        <h4 class="text-xl font-bold mb-2">Application Status</h4>
+        <div id="applications"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-4">Contact us: info@theotokosinstitutezambia.edu | (123) 456-7890</p>
+      <p class="mb-4">123 University Avenue, Lusaka, Zambia</p>
+      <p class="mt-4">© 2025 Theotokos Institute Zambia. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('student-name').textContent = `${user.first_name} ${user.last_name}`;
+    }
+
+    // Fetch enrolled courses
+    fetch(`http://localhost:3000/api/enrollments?user_id=${user.id}`)
+      .then(response => response.json())
+      .then(data => {
+        const coursesDiv = document.getElementById('courses');
+        if (data.length === 0) {
+          coursesDiv.innerHTML = '<p class="text-gray-600">No courses enrolled.</p>';
+        } else {
+          data.forEach(enrollment => {
+            const courseCard = document.createElement('div');
+            courseCard.className = 'bg-gray-100 p-4 rounded mb-4';
+            courseCard.innerHTML = `
+              <h5 class="text-lg font-bold">${enrollment.title}</h5>
+              <p class="text-gray-600">${enrollment.description}</p>
+              <p class="text-gray-700"><strong>Department:</strong> ${enrollment.department}</p>
+            `;
+            coursesDiv.appendChild(courseCard);
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching enrollments:', error));
+
+    // Fetch application status
+    fetch(`http://localhost:3000/api/applications?email=${user.email}`)
+      .then(response => response.json())
+      .then(data => {
+        const applicationsDiv = document.getElementById('applications');
+        if (data.length === 0) {
+          applicationsDiv.innerHTML = '<p class="text-gray-600">No applications submitted.</p>';
+        } else {
+          data.forEach(app => {
+            const appCard = document.createElement('div');
+            appCard.className = 'bg-gray-100 p-4 rounded mb-4';
+            appCard.innerHTML = `
+              <p><strong>Program:</strong> ${app.program}</p>
+              <p><strong>Status:</strong> ${app.status}</p>
+              <p><strong>Submitted:</strong> ${new Date(app.created_at).toLocaleString()}</p>
+            `;
+            applicationsDiv.appendChild(appCard);
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching applications:', error));
+
+    // Logout
+    document.getElementById('logout').addEventListener('click', () => {
+      localStorage.removeItem('user');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

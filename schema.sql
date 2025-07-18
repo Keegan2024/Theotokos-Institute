@@ -29,7 +29,7 @@ CREATE TABLE course_materials (
   id SERIAL PRIMARY KEY,
   course_id INTEGER REFERENCES courses(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
-  type VARCHAR(50) CHECK (type IN ('video', 'pdf', 'assignment')),
+  type VARCHAR(50 | CHECK (type IN ('video', 'pdf', 'assignment')),
   url VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

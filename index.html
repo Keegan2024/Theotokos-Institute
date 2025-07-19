@@ -1,38 +1,124 @@
-<div class="container-fluid p-0">
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <h1 class="h3 mb-3">About Us</h1>
-    <div class="card">
-      <div class="card-body">
-        <p>Theotokos Institute is a faith-based educational institution committed to offering quality theological training and pastoral development programs in Zambia and beyond.</p>
-      </div>
-    </div>
-  </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theotokos Institute</title>
+    <!-- Bootstrap CSS for modern, responsive design -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for classic, professional styling -->
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #2c3e50;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ddd !important;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.25rem;
+        }
+        .content-section {
+            padding: 60px 0;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/Theotokos-Institute/">Theotokos Institute</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Theotokos-Institute/about/">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Theotokos-Institute/publications/">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Theotokos-Institute/projects/">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Theotokos-Institute/contact/">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <!-- COURSES SECTION -->
-  <section id="courses" class="mt-5">
-    <h1 class="h3 mb-3">Courses</h1>
-    <div class="card">
-      <div class="card-body">
-        <ul>
-          <li>Diploma in Theology</li>
-          <li>Certificate in Christian Leadership</li>
-          <li>Pastoral Counseling</li>
-          <li>Biblical Studies</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Theotokos Institute</h1>
+            <p>Advancing knowledge and fostering innovation in academic research and education.</p>
+            <a href="/Theotokos-Institute/about/" class="btn btn-light btn-lg mt-3">Learn More</a>
+        </div>
+    </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="mt-5">
-    <h1 class="h3 mb-3">Contact Us</h1>
-    <div class="card">
-      <div class="card-body">
-        <p><strong>Email:</strong> info@theotokos-institute.org</p>
-        <p><strong>Phone:</strong> +260 97 123 4567</p>
-        <p><strong>Location:</strong> Nchelenge, Zambia</p>
-      </div>
-    </div>
-  </section>
-</div>
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>Theotokos Institute is dedicated to promoting interdisciplinary research, education, and community engagement. Explore our work in the following areas:</p>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <h3><a href="/Theotokos-Institute/about/">About Us</a></h3>
+                    <p>Learn about our history, mission, and team.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3><a href="/Theotokos-Institute/publications/">Publications</a></h3>
+                    <p>Discover our latest research papers and articles.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3><a href="/Theotokos-Institute/projects/">Projects</a></h3>
+                    <p>Explore our ongoing and completed projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Theotokos Institute. All rights reserved.</p>
+            <p><a href="/Theotokos-Institute/contact/" class="text-white">Contact Us</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (for navbar functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
